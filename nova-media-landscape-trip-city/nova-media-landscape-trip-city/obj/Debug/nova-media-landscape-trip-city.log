@@ -1,0 +1,45 @@
+﻿  ofxBaseGui.cpp
+  ofxButton.cpp
+  ofxColorPicker.cpp
+  ofxGuiGroup.cpp
+  ofxInputField.cpp
+  ofxLabel.cpp
+  ofxPanel.cpp
+  ofxSlider.cpp
+  ofxSliderGroup.cpp
+  ofxToggle.cpp
+  ofxSvg.cpp
+  ofxThreadedImageLoader.cpp
+d:\of_v0.11.0_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(276): warning C4018: '<': signed/unsigned mismatch
+  d:\of_v0.11.0_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(265): note: while compiling class template member function 'void ofxInputField<float>::moveCursor(int)'
+  d:\of_v0.11.0_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(368): note: see reference to function template instantiation 'void ofxInputField<float>::moveCursor(int)' being compiled
+  d:\of_v0.11.0_vs2017_release\addons\ofxgui\src\ofxinputfield.cpp(805): note: see reference to class template instantiation 'ofxInputField<float>' being compiled
+  tinyxml.cpp
+  tinyxmlerror.cpp
+  tinyxmlparser.cpp
+  ofxXmlSettings.cpp
+  main.cpp
+  ofApp.cpp
+d:\of_v0.11.0_vs2017_release\addons\ofxxmlsettings\src\ofxxmlsettings.cpp(575): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.18362.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+d:\of_v0.11.0_vs2017_release\addons\ofxxmlsettings\src\ofxxmlsettings.cpp(583): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.18362.0\ucrt\stdio.h(1774): note: see declaration of 'sprintf'
+d:\projects\repositories\github\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\src\ofapp.cpp(10): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+  d:\of_v0.11.0_vs2017_release\libs\openframeworks\graphics\ofimage.h(228): note: see declaration of 'ofImage_<unsigned char>::loadImage'
+d:\projects\repositories\github\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\src\ofapp.cpp(103): warning C4018: '>=': signed/unsigned mismatch
+d:\projects\repositories\github\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\src\ofapp.cpp(111): warning C4018: '>=': signed/unsigned mismatch
+  svgtiny.lib(svgtiny.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+     Creating library bin\nova-media-landscape-trip-city_debug.lib and object bin\nova-media-landscape-trip-city_debug.exp
+  Generating code
+  Finished generating code
+  nova-media-landscape-trip-city.vcxproj -> D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\nova-media-landscape-trip-city_debug.exe
+  
+  	                   2	D:\of_v0.11.0_vs2017_release\libs\fmodex\lib\vs\Win32\
+  	    New File  		 1266176	D:\of_v0.11.0_vs2017_release\libs\fmodex\lib\vs\Win32\fmodex.dll
+  	    New File  		 1312768	D:\of_v0.11.0_vs2017_release\libs\fmodex\lib\vs\Win32\fmodexL.dll
+  
+  	                   1	D:\of_v0.11.0_vs2017_release\libs\FreeImage\lib\vs\Win32\
+  	  *EXTRA File 		 1266176	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\fmodex.dll
+  	  *EXTRA File 		 1312768	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\fmodexL.dll
+  	    New File  		 6018560	D:\of_v0.11.0_vs2017_release\libs\FreeImage\lib\vs\Win32\FreeImage.dll
