@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp{
 
@@ -37,6 +38,21 @@ class ofApp : public ofBaseApp{
 		vector<ofImage> mediaThumbnailsGIFs;
 
 		ofVideoPlayer videoPlayer;
+
+		ofxPanel videoPlayerGUI;
+
+		ofParameterGroup videoPlayerControl;
+
+		ofParameter<bool> videoPlayerControlPlayPause;
+		ofParameter<bool> videoPlayerControlStop;
+
+		ofParameter<float> videoPlayerControlSpeed;
+
+		ofParameter<float> videoPlayerControlVolume;
+
+		ofParameter<bool> videoPlayerControlLoop;
+
+		ofParameter<int> videoPlayerControlScrub;
 
 		int currentVideo = -1;
 		

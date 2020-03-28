@@ -64,6 +64,59 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 
+
+	if (currentVideo > -1) {
+
+		videoPlayer.update();
+
+		videoPlayer.setVolume(videoPlayerControlVolume);
+
+		if (videoPlayerControlPlayPause) {
+
+			videoPlayer.setPaused(false);
+
+		}
+		else {
+			
+			videoPlayer.setPaused(true);
+
+		}
+
+		if (videoPlayerControlStop) {
+		
+			videoPlayer.stop();
+
+		}
+		else {
+
+			videoPlayer.play();
+
+		}
+
+		if (videoPlayerControlLoop) {
+
+			videoPlayer.setLoopState( OF_LOOP_NORMAL );
+
+		}
+		else {
+
+			videoPlayer.setLoopState( OF_LOOP_NONE );
+
+		}
+		
+		if ( videoPlayer.isPaused() ) {
+
+			videoPlayer.setFrame( videoPlayerControlScrub );
+
+		}
+		else {
+
+			videoPlayer.setSpeed( videoPlayerControlSpeed );
+
+		}
+	
+	}
+	
 }
 
 //--------------------------------------------------------------
@@ -127,6 +180,14 @@ void ofApp::draw(){
 
 	}
 
+	if (currentVideo > -1) {
+
+		videoPlayer.draw(0, 0);
+
+		videoPlayerGUI.draw();
+
+	}
+
 }
 
 //--------------------------------------------------------------
@@ -156,7 +217,25 @@ void ofApp::mousePressed(int x, int y, int button){
 		&&
 		(y >= 220 && y <= 220 + 250)) {
 
+		currentVideo = 0;
+
 		std::cout << "Image clicked/selected!!!" << std::endl;
+
+		videoPlayer.load("media/videos/lisbon.mp4");
+		videoPlayer.play();
+		
+		videoPlayerControl.add(videoPlayerControlPlayPause.set("Play/Pause", false));
+		videoPlayerControl.add(videoPlayerControlPlayPause.set("Stop", false));
+
+		videoPlayerControl.add(videoPlayerControlVolume.set("Speed", 1.0, -4.0, 4.0));
+
+		videoPlayerControl.add( videoPlayerControlVolume.set( "Volume", 0.5, 0.0, 1.0 ) );
+		
+		videoPlayerControl.add(videoPlayerControlVolume.set("Loop", false));
+
+		videoPlayerControl.add( videoPlayerControlScrub.set( "Scrub",  0.0, 0.0, videoPlayer.getTotalNumFrames() ) );
+
+		videoPlayerGUI.setup( videoPlayerControl );
 
 	}
 
