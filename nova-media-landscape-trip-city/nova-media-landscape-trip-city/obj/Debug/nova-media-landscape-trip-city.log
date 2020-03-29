@@ -1,11 +1,18 @@
-﻿  ofApp.cpp
-d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-d:\projects\repositories\github\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\src\ofapp.cpp(10): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
+﻿  main.cpp
+  ofApp.cpp
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\ofApp.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\ofApp.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\ofApp.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\ofApp.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\ofApp.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\ofApp.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(326): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(331): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(912): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(913): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(914): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\of_v0.11.0_vs2017_release\libs\openframeworks\math\ofmatrix4x4.h(915): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data (compiling source file src\main.cpp)
+d:\projects\repositories\github\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\src\ofapp.cpp(28): warning C4996: 'ofImage_<unsigned char>::loadImage': Use load instead
   d:\of_v0.11.0_vs2017_release\libs\openframeworks\graphics\ofimage.h(228): note: see declaration of 'ofImage_<unsigned char>::loadImage'
   svgtiny.lib(svgtiny.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
@@ -17,13 +24,10 @@ LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
   	                   2	D:\of_v0.11.0_vs2017_release\libs\fmodex\lib\vs\x64\
   	  *EXTRA File 		 1266176	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\fmodex.dll
   	  *EXTRA File 		 1312768	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\fmodexL.dll
-  	  *EXTRA File 		 6018560	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\FreeImage.dll
-  	    New File  		 1503232	D:\of_v0.11.0_vs2017_release\libs\fmodex\lib\vs\x64\fmodex64.dll
-  	    New File  		 1552384	D:\of_v0.11.0_vs2017_release\libs\fmodex\lib\vs\x64\fmodexL64.dll
+  	  *EXTRA File 		 6942208	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\FreeImage.dll
   
   	                   1	D:\of_v0.11.0_vs2017_release\libs\FreeImage\lib\vs\x64\
   	  *EXTRA File 		 1266176	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\fmodex.dll
   	  *EXTRA File 		 1503232	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\fmodex64.dll
   	  *EXTRA File 		 1312768	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\fmodexL.dll
   	  *EXTRA File 		 1552384	D:\Projects\Repositories\GitHub\nova-media-landscape-trip-city\nova-media-landscape-trip-city\nova-media-landscape-trip-city\bin\fmodexL64.dll
-  	    Older     		 6942208	D:\of_v0.11.0_vs2017_release\libs\FreeImage\lib\vs\x64\FreeImage.dll

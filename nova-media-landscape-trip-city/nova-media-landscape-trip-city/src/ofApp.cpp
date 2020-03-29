@@ -1,3 +1,21 @@
+/*
+
+	Multimedia Computing
+	2nd Semester - 2019/2020
+
+	Faculty of Sciences and Technology of
+	New University of Lisbon (FCT NOVA | FCT/UNL)
+
+	NOVA MEDIA LANDSCAPE TRIP CITY,
+	built with C++ and OpenFrameworks,
+	using some addons as ofxGUI, ofxOpenCV, among others;
+	
+	Authors:
+	- Ruben Andre Barreiro - 42648 (r.barreiro@campus.fct.unl.pt)
+	- Tomas Duarte Pessanha - 41774 (t.pessanha@campus.fct.unl.pt)
+
+*/
+
 #include "ofApp.h"
 
 //--------------------------------------------------------------
@@ -30,10 +48,21 @@ void ofApp::setup(){
 	// Sets the Extensions of the Thumbnails GIFs Media Directory (*.gifs)
 	mediaThumbnailsGIFDirectory.allowExt("gif");
 
+	// In Linux, the file system doesn't return file lists
+	// ordered in Alphabetical Order (for Thumbnails GIFs Media Directory)
+	mediaThumbnailsGIFDirectory.sort();
+
+
+	// Sets the directory of the Videos Media Directory
+	mediaVideosDirectory.listDir("media/videos/");
+
+	// Sets the Extensions of the Videos Media Directory (*.mp4s)
+	mediaVideosDirectory.allowExt("mp4");
 
 	// In Linux, the file system doesn't return file lists
-	// ordered in Alphabetical Order
-	mediaThumbnailsGIFDirectory.sort();
+	// ordered in Alphabetical Order (for Videos Media Directory)
+	mediaVideosDirectory.sort();
+	
 
 	// Allocates the vector to have as many ofImages as files
 	if (mediaThumbnailsGIFDirectory.size()) {
@@ -54,9 +83,13 @@ void ofApp::setup(){
 
 	}
 
+	// Is currently, some Video selected
+	isAVideoSelected = false;
+
 	// The current Video playing
 	currentVideo = -1;
 
+	// Sets the current Background color as Light Slate Gray
 	ofBackground(ofColor::lightSlateGray);
 
 }
@@ -65,7 +98,7 @@ void ofApp::setup(){
 void ofApp::update(){
 
 
-	if (currentVideo > -1) {
+	if ( (currentVideo > -1) && isAVideoSelected ) {
 
 		videoPlayer.update();
 
@@ -112,6 +145,18 @@ void ofApp::update(){
 		else {
 
 			videoPlayer.setSpeed( videoPlayerControlSpeed );
+
+		}
+
+
+		if (videoPlayerControlClose) {
+
+			isAVideoSelected = false;
+
+			videoPlayerControl.clear();
+			videoPlayerGUI.clear();
+
+			videoPlayer.close();
 
 		}
 	
@@ -180,7 +225,7 @@ void ofApp::draw(){
 
 	}
 
-	if (currentVideo > -1) {
+	if ( (currentVideo > -1) && isAVideoSelected ) {
 
 		videoPlayer.draw(0, 0);
 
@@ -213,29 +258,101 @@ void ofApp::mouseDragged(int x, int y, int button){
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
 
-	if ((x >= 100 && x <= 100 + 500)
-		&&
-		(y >= 220 && y <= 220 + 250)) {
+	if ( (mediaVideosDirectory.size() > 0) && !isAVideoSelected ) {
+
+		string currentVideoClickedPathFinal = "";
+
+		ofSetColor(ofColor::white);
 
 		currentVideo = 0;
 
-		std::cout << "Image clicked/selected!!!" << std::endl;
+		for (int currentRow = 0; currentRow < NUM_ROWS_GALLERY; currentRow++) {
 
-		videoPlayer.load("media/videos/lisbon.mp4");
-		videoPlayer.play();
+			if (currentVideo >= mediaVideosDirectory.size()) {
+
+				break;
+
+			}
 		
-		videoPlayerControl.add(videoPlayerControlPlayPause.set("Play/Pause", false));
-		videoPlayerControl.add(videoPlayerControlPlayPause.set("Stop", false));
+			for (int currentColumn = 0; currentColumn < NUM_COLS_GALLERY; currentColumn++) {
 
-		videoPlayerControl.add(videoPlayerControlVolume.set("Speed", 1.0, -4.0, 4.0));
+				if (currentVideo >= mediaVideosDirectory.size()) {
 
-		videoPlayerControl.add( videoPlayerControlVolume.set( "Volume", 0.5, 0.0, 1.0 ) );
-		
-		videoPlayerControl.add(videoPlayerControlVolume.set("Loop", false));
+					break;
 
-		videoPlayerControl.add( videoPlayerControlScrub.set( "Scrub",  0.0, 0.0, videoPlayer.getTotalNumFrames() ) );
+				}
 
-		videoPlayerGUI.setup( videoPlayerControl );
+				if ((x >= (100 + (currentColumn * 600)) && x <= (100 + (currentColumn * 600)) + 500)
+					&&
+					(y >= (220 + (currentRow * 280)) && y <= (220 + (currentRow * 280)) + 250)) {
+
+					string currentVideoClickedPath = mediaVideosDirectory.getPath(currentVideo);
+
+					std::stringstream currentVideoClickedPathStringStream(currentVideoClickedPath);
+					std::string currentVideoClickedPathStringSegment;
+					std::vector<std::string> currentVideoClickedPathStringSegmentList;
+
+					while (std::getline(currentVideoClickedPathStringStream,
+						   currentVideoClickedPathStringSegment, '/'))
+					{
+						
+						currentVideoClickedPathStringSegmentList.push_back(currentVideoClickedPathStringSegment);
+					
+					}
+
+					string currentVideoClickedName = currentVideoClickedPathStringSegmentList[ ( currentVideoClickedPathStringSegmentList.size() - 1 ) ];
+					currentVideoClickedName = currentVideoClickedName.substr(1, currentVideoClickedName.size());
+
+					std::cout << "Video with the name: '"
+						      << currentVideoClickedName
+							  << "' clicked/selected to start playing!!!" << std::endl;					
+					
+					string currentVideoClickedPathPart1 = currentVideoClickedPath.substr(0, 13);
+					string currentVideoClickedPathPart2 = currentVideoClickedPath.substr(14, ( currentVideoClickedPath.size() - 1 ) );
+					
+					currentVideoClickedPathFinal = currentVideoClickedPathPart1 + currentVideoClickedPathPart2;
+
+					std::cout << "Opening the file: " << currentVideoClickedPathFinal << std::endl;
+
+					isAVideoSelected = true;
+
+					break;
+
+				}
+
+				currentVideo++;
+
+			}
+
+			if (isAVideoSelected) {
+
+				break;
+
+			}
+
+		}
+
+		if ( (currentVideoClickedPathFinal != "") && (isAVideoSelected) ) {
+
+			videoPlayer.load(currentVideoClickedPathFinal);
+			videoPlayer.play();
+
+			videoPlayerControl.add(videoPlayerControlClose.set("Close", false));
+
+			videoPlayerControl.add(videoPlayerControlPlayPause.set("Play/Pause", false));
+			videoPlayerControl.add(videoPlayerControlStop.set("Stop", false));
+
+			videoPlayerControl.add(videoPlayerControlSpeed.set("Speed", 1.0, -10.0, 10.0));
+
+			videoPlayerControl.add(videoPlayerControlVolume.set("Volume", 0.5, 0.0, 1.0));
+
+			videoPlayerControl.add(videoPlayerControlLoop.set("Loop", false));
+
+			videoPlayerControl.add(videoPlayerControlScrub.set("Scrub", 0.0, 0.0, videoPlayer.getTotalNumFrames()));
+
+			videoPlayerGUI.setup(videoPlayerControl);
+
+		}
 
 	}
 

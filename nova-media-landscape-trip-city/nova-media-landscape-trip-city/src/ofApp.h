@@ -1,3 +1,21 @@
+/*
+
+	Multimedia Computing
+	2nd Semester - 2019/2020
+
+	Faculty of Sciences and Technology of
+	New University of Lisbon (FCT NOVA | FCT/UNL)
+
+	NOVA MEDIA LANDSCAPE TRIP CITY,
+	built with C++ and OpenFrameworks,
+	using some addons as ofxGUI, ofxOpenCV, among others;
+
+	Authors:
+	- Ruben Andre Barreiro - 42648 (r.barreiro@campus.fct.unl.pt)
+	- Tomas Duarte Pessanha - 41774 (t.pessanha@campus.fct.unl.pt)
+
+*/
+
 #pragma once
 
 #include "ofMain.h"
@@ -37,11 +55,18 @@ class ofApp : public ofBaseApp{
 		ofDirectory mediaThumbnailsGIFDirectory;
 		vector<ofImage> mediaThumbnailsGIFs;
 
+		ofDirectory mediaVideosDirectory;
+		
+		bool isAVideoSelected;
+		int currentVideo;
+
 		ofVideoPlayer videoPlayer;
 
 		ofxPanel videoPlayerGUI;
 
 		ofParameterGroup videoPlayerControl;
+
+		ofParameter<bool> videoPlayerControlClose;
 
 		ofParameter<bool> videoPlayerControlPlayPause;
 		ofParameter<bool> videoPlayerControlStop;
@@ -53,7 +78,5 @@ class ofApp : public ofBaseApp{
 		ofParameter<bool> videoPlayerControlLoop;
 
 		ofParameter<int> videoPlayerControlScrub;
-
-		int currentVideo = -1;
 		
 };
